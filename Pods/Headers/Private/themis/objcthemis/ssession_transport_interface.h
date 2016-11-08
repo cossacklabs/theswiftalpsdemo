@@ -1,0 +1,1 @@
+../../../../themis/src/wrappers/themis/Obj-C/objcthemis/ssession_transport_interface.h
