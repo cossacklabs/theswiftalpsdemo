@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(" ------------ running Cell Demo example -------------- ")
         CellDemo().runDemo()
         
-        print(" ------------ running Session Demo example ----------- ")
-        SessionDemo().runDemo()
+//        print(" ------------ running Session Demo example ----------- ")
+//        SessionDemo().runDemo()
         
         return true
     }
