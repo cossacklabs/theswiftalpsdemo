@@ -46,12 +46,12 @@ final class SessionDemo {
     var transport: Transport?
     var session: TSSession?
     
-    // constants
-    let kClientId: String = "my demo app"
-    let kServerId: String = "my demo server"
+    // client id should be unique per session
+    let kClientId: String = "my_demo_app_#\(arc4random_uniform(100000))"
     
     // get from server
-    let kServerPublicKey: String = "VUVDMgAAAC0g5PxhAohzuMQqMORmE6hYiNk6Yn7fo52tkQyc9FJT4vsivVhV"
+    let kServerId: String = "server"
+    let kServerPublicKey: String = "VUVDMgAAAC1fJTg6AtFORuzUPkI0jpAUylTNmW1N9NOl4LPONX0EQuVUc1Xb"
 
 
     func runDemo() {
@@ -62,15 +62,18 @@ final class SessionDemo {
 
         print("EC privateKey = \(clientPrivateKey)")
         print("EC publicKey = \(clientPublicKey)")
-
+        print("clientId = \(kClientId)")
+        
         checkKeysNotEmpty()
 
-        let messageToSend = "Hello, Swift Alps! 🧀"
+        let messageToSend = "Hello, Swift Alps!"
 
+        print("Sending discovery message")
         sendDiscoveryMessage(clientPublicKey: clientPublicKey, completion: {
             (data: Data?, error: Error?) -> Void in
 
-            if error != nil {
+            if data != nil {
+                print("Sending payload message")
                 self.sendPayload(clientPrivateKey: clientPrivateKey, messageToSend: messageToSend)
             }
 
@@ -253,12 +256,13 @@ extension SessionDemo {
                                          clientPublicKey:String,
                                          completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
 
-        let path: String = baseURL + "connection_request"
+        let path: String = baseURL + "connect_request"
 
-        let params: String = "\("client_name=")\(clientId)&\("public_key=")\(clientPublicKey)"
-        let escapedString = params.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-
-        postRequestTo(path, body: escapedString, completion: completion)
+        let escapedClientId: String = clientId.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let escapedPublicKey: String = clientPublicKey.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let params: String = "\("client_name=")\(escapedClientId)&\("public_key=")\(clientPublicKey)"
+        
+        postRequestTo(path, body: params, completion: completion)
     }
 
 
@@ -287,10 +291,19 @@ extension SessionDemo {
         
         let bodyData: Data = body.data(using: String.Encoding.utf8)!
 
+        print("body=\n\(body)")
+        
         let uploadTask: URLSessionDataTask = session.uploadTask(with: request as URLRequest, from: bodyData,
             completionHandler: {
                 (data: Data?, response: URLResponse?, error: Error?) -> Void in
-
+                
+                print("response=\n\(response)")
+                
+                if error != nil {
+                    completion(nil, error)
+                    return
+                }
+                
                 guard let data = data else {
                     print("Oops, response = \(response)\n error = \(error)")
                     completion(nil, error)
@@ -302,7 +315,8 @@ extension SessionDemo {
                     completion(nil, error)
                     return
                 }
-
+                
+                print("data=\n\(String(data: data, encoding: .utf8))")
                 completion(data, nil)
                 return
         })
