@@ -1,5 +1,6 @@
 #!/usr/bin/python3.5
 import http.client, urllib.parse, http.cookies
+import urllib.parse
 import base64
 import json
 import random
@@ -23,7 +24,7 @@ server_id = 'server'
 server_pub_key = args.server_pub_key
 messages = ["message1", "message2", "message3", "message4", "message5", "message6", "message7", "message8", "message9", "message10"]
 
-id_symbols = string.ascii_letters + string.digits
+id_symbols = string.ascii_letters + string.digits + ' '
 def generate_str(len):
     return ''.join([random.choice(id_symbols) for _ in range(len)])
 
@@ -38,10 +39,10 @@ client_public_key=key_pair.export_public_key()
 class Transport(ssession.mem_transport):
     def get_pub_key_by_id(self, user_id):
         if user_id == b'server':
-            return base64.urlsafe_b64decode(server_pub_key)
+            return base64.b64decode(urllib.parse.unquote(server_pub_key))
 
 
-params = urllib.parse.urlencode({'client_name': client_name, 'public_key': base64.urlsafe_b64encode(client_public_key)})
+params = urllib.parse.urlencode({'client_name': client_name, 'public_key': base64.b64encode(client_public_key)})
 headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
 conn = http.client.HTTPConnection(url, port)
 conn.request("POST", "/connect_request", params, headers)
@@ -53,27 +54,27 @@ if response.status == 200:
     session = ssession.ssession(client_name.encode("UTF-8"), client_private_key, Transport())
     msg = session.connect_request()
     while True:
-        params = urllib.parse.urlencode({'message': base64.urlsafe_b64encode(msg)})
+        params = urllib.parse.urlencode({'client_name': client_name,'message': base64.b64encode(msg)})
         conn.request("POST", "/message", params, headers)
         response = conn.getresponse()
+        msg = response.read()    
         if response.status == 200:
-            msg = response.read()
             print(msg)
             print(response.getheaders())
             cookie = http.cookies.SimpleCookie()
             headers["Cookie"] = ""
             for header in response.getheaders():
-                if header[0] == 'SET-COOKIE':
+                if header[0] == 'Set-Cookie':
                     cookie.load(header[1])
                     headers["Cookie"] = "session_id="+cookie['session_id'].value
-            msg = session.unwrap(base64.urlsafe_b64decode(msg))
+            msg = session.unwrap(base64.b64decode(urllib.parse.unquote(msg.decode("utf-8"))))
             print(msg)
             if not msg.is_control:
                 break
 
     for mess in messages:
         m = {'name': client_name, 'msg': mess}
-        params = urllib.parse.urlencode({'message': base64.urlsafe_b64encode(session.wrap(json.dumps(m).encode("UTF-8")))})
+        params = urllib.parse.urlencode({'client_name': client_name,'message': base64.b64encode(session.wrap(mess.encode("UTF-8")))})
         conn.request("POST", "/message", params, headers)
         response = conn.getresponse()
         if response.status != 200:

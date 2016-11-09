@@ -11,6 +11,7 @@ import datetime
 import uuid
 import jinja2
 import json
+import urllib.parse
 from aiohttp import web
 import aiohttp_jinja2
 
@@ -20,14 +21,14 @@ from pythemis import skeygen
 class Transport(ssession.mem_transport):
     def get_pub_key_by_id(self, user_id):
         print(user_id)
-        return base64.urlsafe_b64decode(pub_keys[user_id.decode("utf-8")]['pub_key'])
+        return base64.b64decode(urllib.parse.unquote(pub_keys[user_id.decode("utf-8")]['pub_key']))
 
 
 @asyncio.coroutine
 @aiohttp_jinja2.template('index.html')
 def index(request):
     url = '{scheme}://{host}/'.format(scheme="http", host=request.host)
-    return {'url': url, 'server_id': 'server', 'server_public_key': base64.urlsafe_b64encode(server_public_key).decode("UTF-8")}
+    return {'url': url, 'server_id': 'server', 'server_public_key': urllib.parse.quote(base64.b64encode(server_public_key).decode("UTF-8"))}
 
 @asyncio.coroutine
 def get_new_messages(request):
@@ -55,31 +56,35 @@ def message(request):
     global sessions
     global history
     data = yield from request.post()
-    if 'message' not in data:
-        return web.Response(status=500, text="incorrect request")
-    if 'session_id' not in request.cookies:
-        session = ssession.ssession(b'server', server_private_key, Transport());
-        msg = session.unwrap(base64.urlsafe_b64decode(data['message']))
-        if msg.is_control:
-            session_id = str(uuid.uuid4())
-            sessions[session_id] = {'start': time.time(), 'last': time.time(), 'session': session}
-            resp = web.Response(text=base64.urlsafe_b64encode(msg).decode("UTF-8"));
-            resp.set_cookie("session_id", session_id)
-            return resp
-    else:
-        session_id = request.cookies['session_id']
-        session = sessions[session_id]['session']
-        msg = session.unwrap(base64.urlsafe_b64decode(data['message']))
-        print(msg)        
-        if msg.is_control:
-            sessions[session_id]['last'] = time.time()
-            resp = web.Response(text=base64.urlsafe_b64encode(msg).decode("UTF-8"));
-            resp.set_cookie("session_id", session_id)
-            return resp
+    try:
+        if 'message' not in data:
+            return web.Response(status=500, text="incorrect request")
+        if 'session_id' not in request.cookies:
+            session = ssession.ssession(b'server', server_private_key, Transport());
+            msg = session.unwrap(base64.b64decode(urllib.parse.unquote(data['message'])))
+            if msg.is_control:
+                session_id = str(uuid.uuid4())
+                sessions[session_id] = {'start': time.time(), 'last': time.time(), 'session': session}
+                resp = web.Response(text=urllib.parse.quote(base64.b64encode(msg).decode("UTF-8")));
+                resp.set_cookie("session_id", session_id)
+                return resp
         else:
-            m = json.loads(msg.decode("UTF-8"))
-            history.append({'name': m['name'], 'time': datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'), 'message': m['msg']})
-            return web.Response(text="Ok")
+            session_id = request.cookies['session_id']
+            session = sessions[session_id]['session']
+            msg = session.unwrap(base64.b64decode(urllib.parse.unquote(data['message'])))
+            print("mm", msg)        
+            if msg.is_control:
+                sessions[session_id]['last'] = time.time()
+                resp = web.Response(text=urllib.parse.quote(base64.b64encode(msg).decode("UTF-8")));
+                resp.set_cookie("session_id", session_id)
+                return resp
+            else:
+                m = json.loads(msg.decode("UTF-8"))
+                history.append({'name': m['name'], 'time': datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'), 'message': m['msg']})
+                return web.Response(text="Ok")
+    except Exception:
+        return web.Response(status=500, text="Fail")
+
                            
 
 @asyncio.coroutine
