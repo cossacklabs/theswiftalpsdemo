@@ -21,25 +21,45 @@ from pythemis import skeygen
 class Transport(ssession.mem_transport):
     def get_pub_key_by_id(self, user_id):
         print(user_id)
-        return base64.b64decode(urllib.parse.unquote(pub_keys[user_id.decode("utf-8")]['pub_key']))
+        return base64.b64decode(pub_keys[user_id.decode("utf-8")]['pub_key'])
 
 
 @asyncio.coroutine
 @aiohttp_jinja2.template('index.html')
 def index(request):
     url = '{scheme}://{host}/'.format(scheme="http", host=request.host)
-    return {'url': url, 'server_id': 'server', 'server_public_key': urllib.parse.quote(base64.b64encode(server_public_key).decode("UTF-8"))}
+    return {'url': url, 'server_id': 'server', 'server_public_key': base64.b64encode(server_public_key).decode("UTF-8")}
 
 @asyncio.coroutine
 def get_new_messages(request):
     global history
+#    last = request.match_info.get('time', "Anonymous")
 #    if len(history) = 0:
 #        text = "{\"error\" : \"<img src='https://mokum.place/system/attachments/000/178/129/mokum-medium-4965ce7a2f478e4f4a6ca07cd76b759300d17a9c.jpg'>\"}"
 #    else:
 #       print(123)
     text = "{\"info\": "+json.dumps(history) + "}"
+#    history = []
+    return web.Response(text=text)
+
+@asyncio.coroutine
+def reset(request):
+    global history
+    global server_private_key
+    global server_public_key
+    global pub_keys
+    global sessions
+
+
+    print("reset")
+    key_pair=skeygen.themis_gen_key_pair('EC')
+    server_private_key=key_pair.export_private_key()
+    server_public_key=key_pair.export_public_key()
+    
+    pub_keys = {}
+    sessions = {}
     history = []
-    return web.Response(text=text)    
+    return web.Response(text=base64.b64encode(server_public_key).decode("UTF-8"))
 
 @asyncio.coroutine
 def register_new_user(request):
@@ -56,35 +76,36 @@ def message(request):
     global sessions
     global history
     data = yield from request.post()
-    try:
-        if 'message' not in data:
-            return web.Response(status=500, text="incorrect request")
-        if 'session_id' not in request.cookies:
-            session = ssession.ssession(b'server', server_private_key, Transport());
-            msg = session.unwrap(base64.b64decode(urllib.parse.unquote(data['message'])))
-            if msg.is_control:
-                session_id = str(uuid.uuid4())
-                sessions[session_id] = {'start': time.time(), 'last': time.time(), 'session': session}
-                resp = web.Response(text=urllib.parse.quote(base64.b64encode(msg).decode("UTF-8")));
-                resp.set_cookie("session_id", session_id)
-                return resp
+    print(data)
+    print(request.cookies)
+    if 'message' not in data or 'client_name' not in data:
+        return web.Response(status=500, text="incorrect request")
+    if 'session_id' not in request.cookies:
+        session = ssession.ssession(b'server', server_private_key, Transport());
+        msg = session.unwrap(base64.b64decode(data['message']))
+        if msg.is_control:
+            session_id = str(uuid.uuid4())
+            sessions[session_id] = {'start': time.time(), 'last': time.time(), 'session': session}
+            print(base64.b64encode(msg).decode("UTF-8"))
+            resp = web.Response(text=base64.b64encode(msg).decode("UTF-8"));
+            resp.set_cookie("session_id", session_id)
+            return resp
+    else:
+        session_id = request.cookies['session_id']
+        session = sessions[session_id]['session']
+        msg = session.unwrap(base64.b64decode(data['message']))
+        print(msg)        
+        if msg.is_control:
+            sessions[session_id]['last'] = time.time()
+            print(base64.b64encode(msg).decode("UTF-8"))
+            resp = web.Response(text=base64.b64encode(msg).decode("UTF-8"));
+            resp.set_cookie("session_id", session_id)
+            return resp
         else:
-            session_id = request.cookies['session_id']
-            session = sessions[session_id]['session']
-            msg = session.unwrap(base64.b64decode(urllib.parse.unquote(data['message'])))
-            print("mm", msg)        
-            if msg.is_control:
-                sessions[session_id]['last'] = time.time()
-                resp = web.Response(text=urllib.parse.quote(base64.b64encode(msg).decode("UTF-8")));
-                resp.set_cookie("session_id", session_id)
-                return resp
-            else:
-                m = json.loads(msg.decode("UTF-8"))
-                history.append({'name': m['name'], 'time': datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'), 'message': m['msg']})
-                return web.Response(text="Ok")
-    except Exception:
-        return web.Response(status=500, text="Fail")
-
+            history.append({'name': data['client_name'], 'time': datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'), 'message': msg.decode("UTF-8")})
+            reply_msg = "Your message received! "+ msg.decode("UTF-8")
+            reply_msg_enc = session.wrap(reply_msg.encode("UTF-8"))
+            return web.Response(text=base64.b64encode(reply_msg_enc).decode("UTF-8"))
                            
 
 @asyncio.coroutine
@@ -94,6 +115,8 @@ def init(port, loop):
     app.router.add_route('GET', '/get_new_messages', get_new_messages)
     app.router.add_route('POST', '/connect_request', register_new_user)
     app.router.add_route('POST', '/message', message)
+    app.router.add_route('GET', '/reset', reset)
+
 
 
     aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('templates/'))
