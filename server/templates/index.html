@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"/>
 
-	<title>theswiftalpsdemo</title>
+    <title>theswiftalpsdemo</title>
 
-	<meta name="keywords" content="the swift alps demo"/>
-	<meta name="description" content="the swift alps demo"/>
-	<meta name="author" content="Cossacklabs"/>
+    <meta name="keywords" content="the swift alps demo"/>
+    <meta name="description" content="the swift alps demo"/>
+    <meta name="author" content="Cossacklabs"/>
 
-	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
 <style>
 
-	*				{
-					 margin:0;
-					 padding:0;
-					 border:none;
-					 outline:none;
-					 background:transparent;
-	box-sizing:border-box;
+    *				{
+		     margin:0;
+		     padding:0;
+		     border:none;
+		     outline:none;
+		     background:transparent;
+    box-sizing:border-box;
         font-size: 12px;
-					}
+		    }
 
-	html,
-	body				{width:100%; height:100%; position:absolute;  /*400*/;}
+    html,
+    body				{width:100%; height:100%; position:absolute;  /*400*/;}
 
-	body,
-	input,
-	button,
-	textarea			{font-size:16px; font-family:Arial, helvetica; fline-height:1.1em; }
+    body,
+    input,
+    button,
+    textarea			{font-size:16px; font-family:Arial, helvetica; fline-height:1.1em; }
 
 
-	body				{z-index:-1}
-	button				{cursor:pointer}
+    body				{z-index:-1}
+    button				{cursor:pointer}
 table {
    border-collapse: collapse;
 }
@@ -50,7 +50,19 @@ table {
           return document.createElement(n);
       }
 
-      var intervalID = setInterval(function(){
+    function clear_function(){
+    $('chat_table').innerHTML = "<tr> <th width='10%'>Name</th> <th>Timestamp</th> <th width='50%'>Message</th> </tr> <tr id='chat_table_error_row'><td colspan=3><img src='https://mokum.place/system/attachments/000/178/129/mokum-medium-4965ce7a2f478e4f4a6ca07cd76b759300d17a9c.jpg'></td></tr>";
+         var xmlHttp = new XMLHttpRequest();
+         xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+               $('server_pub_key').innerHTML = '<b>server public key (base64 encoded):</b>' + xmlHttp.responseText
+         }
+}
+         xmlHttp.open("GET", "{{url}}reset", true); // true for asynchronous
+         xmlHttp.send(null);
+    }
+
+     var intervalID = setInterval(function(){
          var xmlHttp = new XMLHttpRequest();
          xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
@@ -66,8 +78,8 @@ table {
              $('chat_table').appendChild(tr);
          }
       }else{
-          if(new_messages.info.length > 0 && $('chat_table_error_row'))
-              $('chat_table_error_row').remove();
+          if(new_messages.info.length > 0)
+$('chat_table').innerHTML = "<tr> <th width='10%'>Name</th> <th>Timestamp</th> <th width='50%'>Message</th> </tr>";
           for(var i=0; i< new_messages.info.length; ++i){
                           var tr = node_('tr');
                           tr.innerHTML = '<td>'+ new_messages.info[i].name + '</td><td>'+new_messages.info[i].time+'</td><td>'+new_messages.info[i].message+'</td>';
@@ -83,7 +95,8 @@ table {
     <div class='header'>
       <p><b>url:</b> {{url}}</p>
       <p><b>server id:</b> {{server_id}}</p>
-      <p><b>server public key (base64 encoded):</b> {{server_public_key}}</p>
+      <p id="server_pub_key"><b>server public key (base64 encoded):</b> {{server_public_key}}</p>
+      <p><a id="clearLink" title="Click to Clear" href="#" onclick="clear_function();return false;">clear</a></p>
     </div>
 
 
