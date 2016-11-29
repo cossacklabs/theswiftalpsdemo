@@ -72,19 +72,18 @@ final class SessionDemo {
 
         print("\n\nSending discovery message..")
 
-        sendDiscoveryMessage(clientId: clientId, clientPublicKey: clientPublicKey, completion: {
+        sendDiscoveryMessage(clientId: clientId, clientPublicKey: clientPublicKey) {
                                 
             (data: Data?, error: Error?) -> Void in
 
-            if data != nil {
+            guard data != nil else { return }
 
-                print("\n\nEstablishing session...")
-                self.sendPayload(serverId: Constants.ServerId.rawValue, serverPublicKey: Constants.ServerPublicKey.rawValue,
-                                 clientId: clientId, clientPrivateKey: clientPrivateKey,
-                                 messageToSend: self.messageToSend)
-            }
+            print("\n\nEstablishing session...")
+            self.sendPayload(serverId: Constants.ServerId.rawValue, serverPublicKey: Constants.ServerPublicKey.rawValue,
+                             clientId: clientId, clientPrivateKey: clientPrivateKey,
+                             messageToSend: self.messageToSend)
 
-        })
+        }
 
     }
 
@@ -127,7 +126,7 @@ final class SessionDemo {
             return
         }
 
-        self.startSession(clientId: clientId, message: connectionMessage, completion: {
+        self.startSession(clientId: clientId, message: connectionMessage) {
             (error: Error?) -> Void in
 
             if error != nil {
@@ -136,8 +135,8 @@ final class SessionDemo {
             }
 
             print("\n\nSending payload message...")
-            self.encryptAndSendPayload(message: messageToSend, clientId: clientId,
-                    completion: {
+            self.encryptAndSendPayload(message: messageToSend, clientId: clientId)
+                   {
                         (data: String?, messageError: Error?) -> Void in
 
                         guard let data = data else {
@@ -145,8 +144,8 @@ final class SessionDemo {
                             return
                         }
                         print("\n\n👏 Server response success:\n\(data)")
-                    })
-        })
+                    }
+        }
     }
     
     
@@ -154,8 +153,7 @@ final class SessionDemo {
                                     completion: @escaping (_ error: Error?) -> Void) {
 
 
-        postEncryptedMessage(message: message, clientId: clientId,
-                             completion: { (data: Data?, error: Error?) -> Void in
+        postEncryptedMessage(message: message, clientId: clientId) { (data: Data?, error: Error?) -> Void in
 
             guard let data = data else {
                 print("💥 Error occurred while starting session \(error)")
@@ -184,9 +182,8 @@ final class SessionDemo {
                     print("💥 Error occurred while decrypting session start message \(error)", #function)
                     completion(error)
                 }
-                return
             }
-        })
+        }
     }
     
     
@@ -202,11 +199,9 @@ final class SessionDemo {
         } catch let error {
             print("💥 Error occurred while wrapping message \(error)", #function)
             completion(nil, error)
-            return
         }
 
-        postEncryptedMessage(message: encryptedMessage, clientId: clientId,
-                             completion: {(data: Data?, error: Error?) -> Void in
+        postEncryptedMessage(message: encryptedMessage, clientId: clientId) { (data: Data?, error: Error?) -> Void in
                                 
             guard let data = data else {
                 print("💥 Error occurred while sending message \(error)")
@@ -224,9 +219,8 @@ final class SessionDemo {
             } catch let error {
                 print("💥 Error occurred while decrypting message \(error)", #function)
                 completion(nil, error)
-                return
             }
-        })
+        }
     }
 }
 
@@ -296,8 +290,7 @@ extension SessionDemo {
 
         print("--->\n\(body)\n")
         
-        let uploadTask: URLSessionDataTask = session.uploadTask(with: request as URLRequest, from: bodyData,
-            completionHandler: {
+        let uploadTask: URLSessionDataTask = session.uploadTask(with: request as URLRequest, from: bodyData) {
                 (data: Data?, response: URLResponse?, error: Error?) -> Void in
                 
                 
@@ -325,8 +318,7 @@ extension SessionDemo {
                 }
                 
                 completion(resultData, nil)
-                return
-        })
+        }
         
         uploadTask.resume()
     }
