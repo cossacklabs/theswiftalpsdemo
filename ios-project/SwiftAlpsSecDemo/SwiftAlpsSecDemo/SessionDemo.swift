@@ -23,8 +23,7 @@ final class Transport: TSSessionTransportInterface {
 
     override func publicKey(for binaryId: Data!) throws -> Data {
         let error: Error = NSError(domain: errorDomain, code: -1, userInfo: nil)
-        let stringFromData = String(data: binaryId, encoding: String.Encoding.utf8)
-        if stringFromData == nil {
+        guard let stringFromData = String(data: binaryId, encoding: String.Encoding.utf8) else {
             throw error
         }
 
