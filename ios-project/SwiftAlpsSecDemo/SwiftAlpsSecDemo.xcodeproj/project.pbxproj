@@ -29,7 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
+		009313EE29E34E4BD518E19F /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4DCF83F38DB5D02E1FA19654 /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
 		734337301DD1440B00054440 /* SessionDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDemo.swift; sourceTree = "<group>"; };
 		734337311DD1440B00054440 /* SwiftAlpsSecDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftAlpsSecDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		734337341DD1461800054440 /* CellDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDemo.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		73DD0BDD1DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAlpsSecDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DD0BE11DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAlpsSecDemoTests.swift; sourceTree = "<group>"; };
 		73DD0BE31DD13FC2007C2E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		89A9CB286E4E31B75E0B25E5 /* libPods-SwiftAlpsSecDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftAlpsSecDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,8 +122,8 @@
 		EA0541C7B29F421A18A05C1F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
-				538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
+				009313EE29E34E4BD518E19F /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
+				4DCF83F38DB5D02E1FA19654 /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -387,6 +387,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,6 +438,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,7 +448,7 @@
 		};
 		73DD0BE71DD13FC2007C2E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
+			baseConfigurationReference = 009313EE29E34E4BD518E19F /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -464,7 +466,7 @@
 		};
 		73DD0BE81DD13FC2007C2E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
+			baseConfigurationReference = 4DCF83F38DB5D02E1FA19654 /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -482,7 +484,7 @@
 		};
 		73DD0BEA1DD13FC2007C2E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
+			baseConfigurationReference = 009313EE29E34E4BD518E19F /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -493,6 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftAlpsSecDemo.app/SwiftAlpsSecDemo";
@@ -501,7 +504,7 @@
 		};
 		73DD0BEB1DD13FC2007C2E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
+			baseConfigurationReference = 4DCF83F38DB5D02E1FA19654 /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftAlpsSecDemo.app/SwiftAlpsSecDemo";
