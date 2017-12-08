@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66BC00E02A9C6459C281845D /* libPods-SwiftAlpsSecDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */; };
+		15B82A6EC826EB31FA5FBB53 /* Pods_SwiftAlpsSecDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0B88138A9CC317F2A78CF8 /* Pods_SwiftAlpsSecDemoTests.framework */; };
 		734337331DD1440B00054440 /* SessionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734337301DD1440B00054440 /* SessionDemo.swift */; };
 		734337351DD1461800054440 /* CellDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734337341DD1461800054440 /* CellDemo.swift */; };
 		73DD0BCD1DD13FC2007C2E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD0BCC1DD13FC2007C2E3E /* AppDelegate.swift */; };
@@ -16,6 +16,7 @@
 		73DD0BD41DD13FC2007C2E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DD0BD31DD13FC2007C2E3E /* Assets.xcassets */; };
 		73DD0BD71DD13FC2007C2E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DD0BD51DD13FC2007C2E3E /* LaunchScreen.storyboard */; };
 		73DD0BE21DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD0BE11DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift */; };
+		A3ADDF1ED248D64A7BCB711F /* Pods_SwiftAlpsSecDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECC32AB2052453626601798 /* Pods_SwiftAlpsSecDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
+		1ECC32AB2052453626601798 /* Pods_SwiftAlpsSecDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAlpsSecDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		307FF6DE90A45CD849468E58 /* Pods-SwiftAlpsSecDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemoTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemoTests/Pods-SwiftAlpsSecDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		4372CDD2FC9B3A5972678936 /* Pods-SwiftAlpsSecDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemoTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemoTests/Pods-SwiftAlpsSecDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		734337301DD1440B00054440 /* SessionDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDemo.swift; sourceTree = "<group>"; };
 		734337311DD1440B00054440 /* SwiftAlpsSecDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftAlpsSecDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		734337341DD1461800054440 /* CellDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDemo.swift; sourceTree = "<group>"; };
@@ -44,7 +46,9 @@
 		73DD0BDD1DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAlpsSecDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DD0BE11DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAlpsSecDemoTests.swift; sourceTree = "<group>"; };
 		73DD0BE31DD13FC2007C2E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftAlpsSecDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7443DD90A9BC2A6CCFA60D47 /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A40CEFC9044DEE82054923B2 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CA0B88138A9CC317F2A78CF8 /* Pods_SwiftAlpsSecDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAlpsSecDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BC00E02A9C6459C281845D /* libPods-SwiftAlpsSecDemo.a in Frameworks */,
+				A3ADDF1ED248D64A7BCB711F /* Pods_SwiftAlpsSecDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,20 +64,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B82A6EC826EB31FA5FBB53 /* Pods_SwiftAlpsSecDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48C11DB0EE6881E3F2BEB01D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEFC9044DEE82054923B2 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
+				7443DD90A9BC2A6CCFA60D47 /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
+				4372CDD2FC9B3A5972678936 /* Pods-SwiftAlpsSecDemoTests.debug.xcconfig */,
+				307FF6DE90A45CD849468E58 /* Pods-SwiftAlpsSecDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		73DD0BC01DD13FC2007C2E3E = {
 			isa = PBXGroup;
 			children = (
 				73DD0BCB1DD13FC2007C2E3E /* SwiftAlpsSecDemo */,
 				73DD0BE01DD13FC2007C2E3E /* SwiftAlpsSecDemoTests */,
 				73DD0BCA1DD13FC2007C2E3E /* Products */,
-				A10D3A8E880C44DD4267E332 /* Pods */,
-				941F96590D5CD29F2A0D13A5 /* Frameworks */,
+				48C11DB0EE6881E3F2BEB01D /* Pods */,
+				7C3484554A42E9315FF0B022 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,21 +127,13 @@
 			path = SwiftAlpsSecDemoTests;
 			sourceTree = "<group>";
 		};
-		941F96590D5CD29F2A0D13A5 /* Frameworks */ = {
+		7C3484554A42E9315FF0B022 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */,
+				1ECC32AB2052453626601798 /* Pods_SwiftAlpsSecDemo.framework */,
+				CA0B88138A9CC317F2A78CF8 /* Pods_SwiftAlpsSecDemoTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A10D3A8E880C44DD4267E332 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
-				5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,12 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DD0BE61DD13FC2007C2E3E /* Build configuration list for PBXNativeTarget "SwiftAlpsSecDemo" */;
 			buildPhases = (
-				C2FEFA3C7D29719DBDA76E36 /* [CP] Check Pods Manifest.lock */,
+				9E00F721BBE9F1258EAF1965 /* [CP] Check Pods Manifest.lock */,
 				73DD0BC51DD13FC2007C2E3E /* Sources */,
 				73DD0BC61DD13FC2007C2E3E /* Frameworks */,
 				73DD0BC71DD13FC2007C2E3E /* Resources */,
-				72E218690CAB39E16F10994C /* [CP] Embed Pods Frameworks */,
-				ABAAAA9325D440116098FEBC /* [CP] Copy Pods Resources */,
+				DF5806AB9E2246AEDF36D1F3 /* [CP] Embed Pods Frameworks */,
+				E3ACF00CB71634B55144B3E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DD0BE91DD13FC2007C2E3E /* Build configuration list for PBXNativeTarget "SwiftAlpsSecDemoTests" */;
 			buildPhases = (
+				F93CF18173A607077193D8C2 /* [CP] Check Pods Manifest.lock */,
 				73DD0BD91DD13FC2007C2E3E /* Sources */,
 				73DD0BDA1DD13FC2007C2E3E /* Frameworks */,
 				73DD0BDB1DD13FC2007C2E3E /* Resources */,
+				434817278015E604D5A8B9CE /* [CP] Embed Pods Frameworks */,
+				008AAB5B5C3579C1E511554C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,16 +187,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Anastasiia Vxtl";
 				TargetAttributes = {
 					73DD0BC81DD13FC2007C2E3E = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Manual;
 					};
 					73DD0BDC1DD13FC2007C2E3E = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Manual;
 						TestTargetID = 73DD0BC81DD13FC2007C2E3E;
 					};
 				};
@@ -230,7 +243,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72E218690CAB39E16F10994C /* [CP] Embed Pods Frameworks */ = {
+		008AAB5B5C3579C1E511554C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemoTests/Pods-SwiftAlpsSecDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		434817278015E604D5A8B9CE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -242,10 +270,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemoTests/Pods-SwiftAlpsSecDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E00F721BBE9F1258EAF1965 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftAlpsSecDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF5806AB9E2246AEDF36D1F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-frameworks.sh",
+				"${PODS_ROOT}/GRKOpenSSLFramework/OpenSSL-iOS/bin/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/themis/themis.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/themis.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABAAAA9325D440116098FEBC /* [CP] Copy Pods Resources */ = {
+		E3ACF00CB71634B55144B3E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,19 +326,22 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2FEFA3C7D29719DBDA76E36 /* [CP] Check Pods Manifest.lock */ = {
+		F93CF18173A607077193D8C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftAlpsSecDemoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -336,7 +405,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -344,7 +415,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -368,12 +443,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -387,7 +463,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -395,7 +473,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -413,10 +495,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -424,56 +507,90 @@
 		};
 		73DD0BE71DD13FC2007C2E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
+			baseConfigurationReference = A40CEFC9044DEE82054923B2 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftAlpsSecDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		73DD0BE81DD13FC2007C2E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
+			baseConfigurationReference = 7443DD90A9BC2A6CCFA60D47 /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftAlpsSecDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		73DD0BEA1DD13FC2007C2E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4372CDD2FC9B3A5972678936 /* Pods-SwiftAlpsSecDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/themis/src\"",
+					"\"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GRKOpenSSLFramework\"",
+				);
 				INFOPLIST_FILE = SwiftAlpsSecDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftAlpsSecDemo.app/SwiftAlpsSecDemo";
 			};
 			name = Debug;
 		};
 		73DD0BEB1DD13FC2007C2E3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 307FF6DE90A45CD849468E58 /* Pods-SwiftAlpsSecDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/themis/src\"",
+					"\"${PODS_ROOT}/themis/src/wrappers/themis/Obj-C\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GRKOpenSSLFramework\"",
+				);
 				INFOPLIST_FILE = SwiftAlpsSecDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vxtldemo.SwiftAlpsSecDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SwiftAlpsSecDemo-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftAlpsSecDemo.app/SwiftAlpsSecDemo";
 			};
 			name = Release;

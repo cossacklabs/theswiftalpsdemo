@@ -45,7 +45,7 @@ final class SessionDemo {
 
         // get from server
         case ServerId = "server"
-        case ServerPublicKey = "VUVDMgAAAC1xA2bBA7/7aTgZ95serqRQLj9Xtkrpon+6hqZxj/a5uc678/vm"
+        case ServerPublicKey = "VUVDMgAAAC0yt34XAzBC7wOkxVM2WSJOUlneL4TLMaVRK9doGUewM3qOoFKL"
         
         // client id should be unique per session
         case ClientId = "swift_developer"
@@ -111,7 +111,7 @@ final class SessionDemo {
 
         self.transport = Transport()
         self.transport?.setupKeys(serverId, serverPublicKey: serverPublicKey)
-        self.session = TSSession(userId: clientIdData, privateKey: clientPrivateKeyData, callbacks: self.transport)
+        self.session = TSSession(userId: clientIdData, privateKey: clientPrivateKeyData, callbacks: self.transport!)
 
 
         var connectionMessage: Data
@@ -130,7 +130,7 @@ final class SessionDemo {
             (error: Error?) -> Void in
 
             if error != nil {
-                print("💥 Error occurred while session initialization \(error)", #function)
+                print("💥 Error occurred while session initialization \(error as Optional)", #function)
                 return
             }
 
@@ -140,7 +140,7 @@ final class SessionDemo {
                         (data: String?, messageError: Error?) -> Void in
 
                         guard let data = data else {
-                            print("💥 Error occurred while sending message \(messageError)", #function)
+                            print("💥 Error occurred while sending message \(messageError as Optional)", #function)
                             return
                         }
                         print("\n\n👏 Server response success:\n\(data)")
@@ -156,7 +156,7 @@ final class SessionDemo {
         postEncryptedMessage(message: message, clientId: clientId) { (data: Data?, error: Error?) -> Void in
 
             guard let data = data else {
-                print("💥 Error occurred while starting session \(error)")
+                print("💥 Error occurred while starting session \(error as Optional)")
                 return
             }
 
@@ -206,7 +206,7 @@ final class SessionDemo {
         postEncryptedMessage(message: encryptedMessage, clientId: clientId) { (data: Data?, error: Error?) -> Void in
                                 
             guard let data = data else {
-                print("💥 Error occurred while sending message \(error)")
+                print("💥 Error occurred while sending message \(error as Optional)")
                 return
             }
 
@@ -297,7 +297,7 @@ extension SessionDemo {
                 
                 
                 if error != nil || data == nil {
-                    print("😭 Oops, response:\n\(response)\n error:\n\(error)\n")
+                    print("😭 Oops, response:\n\(response as Optional)\n error:\n\(error as Optional)\n")
                     completion(nil, error)
                     return
                 }
@@ -314,7 +314,7 @@ extension SessionDemo {
                 print("<---\n\(dataString)\n")
 
                 if let response = response as? HTTPURLResponse, response.statusCode != 200 {
-                    print("😭 Oops, response:\n\(response)\n error:\n\(error)\n")
+                    print("😭 Oops, response:\n\(response as Optional)\n error:\n\(error as Optional)\n")
                     completion(nil, error)
                     return
                 }

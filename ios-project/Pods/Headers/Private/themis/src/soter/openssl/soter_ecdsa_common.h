@@ -1,1 +1,0 @@
-../../../../../../themis/src/soter/openssl/soter_ecdsa_common.h
