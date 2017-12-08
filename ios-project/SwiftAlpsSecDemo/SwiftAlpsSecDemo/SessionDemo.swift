@@ -45,7 +45,7 @@ final class SessionDemo {
 
         // get from server
         case ServerId = "server"
-        case ServerPublicKey = "VUVDMgAAAC1xA2bBA7/7aTgZ95serqRQLj9Xtkrpon+6hqZxj/a5uc678/vm"
+        case ServerPublicKey = "VUVDMgAAAC0yt34XAzBC7wOkxVM2WSJOUlneL4TLMaVRK9doGUewM3qOoFKL"
         
         // client id should be unique per session
         case ClientId = "swift_developer"
