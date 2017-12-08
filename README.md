@@ -62,3 +62,8 @@ Using any good transfer encryption library makes your work useless if you store 
 - Swift docs for [Themis library](https://github.com/cossacklabs/themis/wiki/Swift-Howto).
 - [SwiftAlps event](http://theswiftalps.com/)
 - Links to [workshop slides](https://speakerdeck.com/vixentael/the-swift-alps-security-workshop)
+
+
+## Contributing
+
+Thanks @valeriyvan for several important PRs!
