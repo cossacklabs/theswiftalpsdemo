@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66BC00E02A9C6459C281845D /* libPods-SwiftAlpsSecDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */; };
 		734337331DD1440B00054440 /* SessionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734337301DD1440B00054440 /* SessionDemo.swift */; };
 		734337351DD1461800054440 /* CellDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734337341DD1461800054440 /* CellDemo.swift */; };
 		73DD0BCD1DD13FC2007C2E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD0BCC1DD13FC2007C2E3E /* AppDelegate.swift */; };
@@ -16,6 +15,7 @@
 		73DD0BD41DD13FC2007C2E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73DD0BD31DD13FC2007C2E3E /* Assets.xcassets */; };
 		73DD0BD71DD13FC2007C2E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73DD0BD51DD13FC2007C2E3E /* LaunchScreen.storyboard */; };
 		73DD0BE21DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD0BE11DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift */; };
+		C73008F4C0D8102ABAE967A6 /* libPods-SwiftAlpsSecDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A9CB286E4E31B75E0B25E5 /* libPods-SwiftAlpsSecDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
+		538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.release.xcconfig"; sourceTree = "<group>"; };
 		734337301DD1440B00054440 /* SessionDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDemo.swift; sourceTree = "<group>"; };
 		734337311DD1440B00054440 /* SwiftAlpsSecDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftAlpsSecDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		734337341DD1461800054440 /* CellDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDemo.swift; sourceTree = "<group>"; };
@@ -44,7 +43,8 @@
 		73DD0BDD1DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAlpsSecDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73DD0BE11DD13FC2007C2E3E /* SwiftAlpsSecDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAlpsSecDemoTests.swift; sourceTree = "<group>"; };
 		73DD0BE31DD13FC2007C2E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftAlpsSecDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAlpsSecDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		89A9CB286E4E31B75E0B25E5 /* libPods-SwiftAlpsSecDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftAlpsSecDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66BC00E02A9C6459C281845D /* libPods-SwiftAlpsSecDemo.a in Frameworks */,
+				C73008F4C0D8102ABAE967A6 /* libPods-SwiftAlpsSecDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +72,8 @@
 				73DD0BCB1DD13FC2007C2E3E /* SwiftAlpsSecDemo */,
 				73DD0BE01DD13FC2007C2E3E /* SwiftAlpsSecDemoTests */,
 				73DD0BCA1DD13FC2007C2E3E /* Products */,
-				A10D3A8E880C44DD4267E332 /* Pods */,
-				941F96590D5CD29F2A0D13A5 /* Frameworks */,
+				EA0541C7B29F421A18A05C1F /* Pods */,
+				D8F9A37E75F8764C6A47AC13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,19 +111,19 @@
 			path = SwiftAlpsSecDemoTests;
 			sourceTree = "<group>";
 		};
-		941F96590D5CD29F2A0D13A5 /* Frameworks */ = {
+		D8F9A37E75F8764C6A47AC13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E569B55C61B1048831ABD039 /* libPods-SwiftAlpsSecDemo.a */,
+				89A9CB286E4E31B75E0B25E5 /* libPods-SwiftAlpsSecDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A10D3A8E880C44DD4267E332 /* Pods */ = {
+		EA0541C7B29F421A18A05C1F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
-				5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
+				893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */,
+				538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -135,12 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73DD0BE61DD13FC2007C2E3E /* Build configuration list for PBXNativeTarget "SwiftAlpsSecDemo" */;
 			buildPhases = (
-				C2FEFA3C7D29719DBDA76E36 /* [CP] Check Pods Manifest.lock */,
+				E3F0CFD791D9403742E972A2 /* [CP] Check Pods Manifest.lock */,
 				73DD0BC51DD13FC2007C2E3E /* Sources */,
 				73DD0BC61DD13FC2007C2E3E /* Frameworks */,
 				73DD0BC71DD13FC2007C2E3E /* Resources */,
-				72E218690CAB39E16F10994C /* [CP] Embed Pods Frameworks */,
-				ABAAAA9325D440116098FEBC /* [CP] Copy Pods Resources */,
+				CBE9D05D40B814229C9E3C6C /* [CP] Embed Pods Frameworks */,
+				BC16C5238764DB900BFD375B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,22 +230,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72E218690CAB39E16F10994C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABAAAA9325D440116098FEBC /* [CP] Copy Pods Resources */ = {
+		BC16C5238764DB900BFD375B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,19 +245,40 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2FEFA3C7D29719DBDA76E36 /* [CP] Check Pods Manifest.lock */ = {
+		CBE9D05D40B814229C9E3C6C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-frameworks.sh",
+				"${PODS_ROOT}/GRKOpenSSLFramework/OpenSSL-iOS/bin/openssl.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SwiftAlpsSecDemo/Pods-SwiftAlpsSecDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3F0CFD791D9403742E972A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftAlpsSecDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -424,7 +430,7 @@
 		};
 		73DD0BE71DD13FC2007C2E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 419AF8DA2593DBB5BFAE1952 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
+			baseConfigurationReference = 893F576E1E02C0B30FB05649 /* Pods-SwiftAlpsSecDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftAlpsSecDemo/Info.plist;
@@ -438,7 +444,7 @@
 		};
 		73DD0BE81DD13FC2007C2E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7326198D3ED7566F075658 /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
+			baseConfigurationReference = 538AA9B04DA6F0BB8A30759D /* Pods-SwiftAlpsSecDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftAlpsSecDemo/Info.plist;

@@ -111,7 +111,7 @@ final class SessionDemo {
 
         self.transport = Transport()
         self.transport?.setupKeys(serverId, serverPublicKey: serverPublicKey)
-        self.session = TSSession(userId: clientIdData, privateKey: clientPrivateKeyData, callbacks: self.transport)
+        self.session = TSSession(userId: clientIdData, privateKey: clientPrivateKeyData, callbacks: self.transport!)
 
 
         var connectionMessage: Data

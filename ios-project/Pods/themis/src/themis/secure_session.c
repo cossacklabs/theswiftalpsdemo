@@ -16,7 +16,7 @@
 
 #include <themis/secure_session.h>
 #include <themis/secure_session_t.h>
-#include <themis/error.h>
+#include <themis/themis_error.h>
 #include <soter/soter_rsa_key.h>
 #include <soter/soter_ec_key.h>
 
@@ -316,7 +316,7 @@ static themis_status_t secure_session_accept(secure_session_t *session_ctx, cons
 	signature_length = (const uint8_t *)data + soter_container_data_size(proto_message) + sizeof(soter_container_hdr_t) - signature;
 	if (session_ctx->user_callbacks->get_public_key_for_id(soter_container_const_data(peer_id), soter_container_data_size(peer_id), sign_key, sizeof(sign_key), session_ctx->user_callbacks->user_data))
 	{
-		return THEMIS_INVALID_PARAMETER;
+		return THEMIS_SSESSION_GET_PUB_FOR_ID_CALLBACK_ERROR;
 	}
 
 	peer_sign_key = (const soter_container_hdr_t *)sign_key;
@@ -504,10 +504,9 @@ static themis_status_t secure_session_proceed_client(secure_session_t *session_c
 
 	signature = (const uint8_t *)peer_ecdh_key + peer_ecdh_key_length;
 	signature_length = (const uint8_t *)data + soter_container_data_size(proto_message) + sizeof(soter_container_hdr_t) - signature;
-
 	if (session_ctx->user_callbacks->get_public_key_for_id(soter_container_const_data(peer_id), soter_container_data_size(peer_id), sign_key, sizeof(sign_key), session_ctx->user_callbacks->user_data))
 	{
-		return THEMIS_INVALID_PARAMETER;
+		return THEMIS_SSESSION_GET_PUB_FOR_ID_CALLBACK_ERROR;
 	}
 
 	peer_sign_key = (const soter_container_hdr_t *)sign_key;
@@ -1036,4 +1035,17 @@ err:
 bool secure_session_is_established(const secure_session_t *session_ctx)
 {
 	return (NULL == session_ctx->state_handler);
+}
+
+themis_status_t secure_session_get_remote_id(const secure_session_t* session_ctx, uint8_t* id, size_t* id_length){
+    if(!session_ctx || !id_length){
+	return THEMIS_INVALID_PARAMETER;
+    }
+    if(!id || (*id_length)<(session_ctx->peer.id_length)){
+	(*id_length)=(session_ctx->peer.id_length);
+	return THEMIS_BUFFER_TOO_SMALL;
+    }
+    memcpy(id, session_ctx->peer.id, session_ctx->peer.id_length);
+    (*id_length)=(session_ctx->peer.id_length);
+    return THEMIS_SUCCESS;
 }

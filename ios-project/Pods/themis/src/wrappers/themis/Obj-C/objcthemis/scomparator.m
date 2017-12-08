@@ -15,7 +15,7 @@
 */
 
 #import <objcthemis/scomparator.h>
-#import <objcthemis/error.h>
+#import <objcthemis/serror.h>
 
 
 @interface TSComparator ()
@@ -27,28 +27,29 @@
 
 @implementation TSComparator
 
-- (instancetype)initWithMessageToCompare:(NSData *)message {
+- (nullable instancetype)initWithMessageToCompare:(NSData *)message {
     self = [super init];
     if (self) {
-      self.comparator = secure_comparator_create();
-      if(self.comparator){
-	if(secure_comparator_append_secret(self.comparator, [message bytes], [message length]) == TSErrorTypeSuccess){
-	  return self;
-	};
-	secure_comparator_destroy(self.comparator);
-      }
+        self.comparator = secure_comparator_create();
+        if (self.comparator) {
+            if (secure_comparator_append_secret(self.comparator, [message bytes], [message length]) == TSErrorTypeSuccess) {
+                return self;
+            }
+            secure_comparator_destroy(self.comparator);
+        }
     }
     return nil;
 }
 
--(void)dealloc {
-  if(self.comparator){
-    secure_comparator_destroy(self.comparator);
-  }
+// TODO: check for memory leak?
+- (void)dealloc {
+    if(self.comparator) {
+        secure_comparator_destroy(self.comparator);
+    }
 }
 
 
-- (NSData *)beginCompare:(NSError **)error {
+- (nullable NSData *)beginCompare:(NSError **)error {
     size_t comparationRequestLength = 0;
     TSErrorType result = (TSErrorType) secure_comparator_begin_compare(self.comparator, NULL, &comparationRequestLength);
 
@@ -64,10 +65,10 @@
         *error = SCERROR(result, @"Secure Comparator failed making initialisation message");
         return nil;
     }
-    return requestData;
+    return [requestData copy];
 }
 
-- (NSData *)proceedCompare:(NSData *)message error:(NSError **)error {
+- (nullable NSData *)proceedCompare:(nullable NSData *)message error:(NSError **)error {
     size_t unwrappedMessageLength = 0;
     TSErrorType result = (TSErrorType) secure_comparator_proceed_compare(self.comparator, [message bytes], [message length], NULL, &unwrappedMessageLength);
 
@@ -91,7 +92,7 @@
             return nil;
         }
     }
-    return unwrappedMessage;
+    return [unwrappedMessage copy];
 }
 
 - (TSComparatorStateType)status {

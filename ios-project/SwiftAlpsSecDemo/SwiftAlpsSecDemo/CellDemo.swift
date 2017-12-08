@@ -38,7 +38,7 @@ final class CellDemo {
 
 
     private func initializeCell(password: String) -> TSCellSeal? {
-        let masterKeyData = password.data(using: .utf8)
+        let masterKeyData = password.data(using: .utf8)!
         guard let cellSeal: TSCellSeal = TSCellSeal(key: masterKeyData) else {
             print("Error occurred while initializing object cellSeal", #function)
             return nil
@@ -51,7 +51,7 @@ final class CellDemo {
 
         var encryptedMessage: Data = Data()
         do {
-            encryptedMessage = try cell.wrap(message.data(using: .utf8),
+            encryptedMessage = try cell.wrap(message.data(using: .utf8)!,
                     context: context.data(using: .utf8))
 
         } catch let error as NSError {

@@ -15,7 +15,7 @@
 */
 
 #import <objcthemis/ssession.h>
-#import <objcthemis/error.h>
+#import <objcthemis/serror.h>
 
 
 @interface TSSession ()
@@ -27,8 +27,9 @@
 
 @implementation TSSession
 
-- (instancetype)initWithUserId:(NSData *)userId privateKey:(NSData *)privateKey
-                     callbacks:(TSSessionTransportInterface *)callbacks {
+- (nullable instancetype)initWithUserId:(NSData *)userId
+                             privateKey:(NSData *)privateKey
+                              callbacks:(TSSessionTransportInterface *)callbacks {
     self = [super init];
     if (self) {
         self.session = secure_session_create([userId bytes], [userId length],
@@ -46,7 +47,7 @@
 }
 
 
-- (NSData *)connectRequest:(NSError **)error {
+- (nullable NSData *)connectRequest:(NSError **)error {
     size_t connectRequestLength = 0;
     TSErrorType result = (TSErrorType) secure_session_generate_connect_request(self.session, NULL, &connectRequestLength);
 
@@ -62,11 +63,11 @@
         *error = SCERROR(result, @"Secure Session failed making connection request");
         return nil;
     }
-    return requestData;
+    return [requestData copy];
 }
 
 
-- (NSData *)wrapData:(NSData *)message error:(NSError **)error {
+- (nullable NSData *)wrapData:(nullable NSData *)message error:(NSError **)error {
     size_t wrappedMessageLength = 0;
 
     TSErrorType result = (TSErrorType) secure_session_wrap(self.session, [message bytes], [message length],
@@ -85,11 +86,11 @@
         *error = SCERROR(result, @"Secure Session failed encryption");
         return nil;
     }
-    return wrappedMessage;
+    return [wrappedMessage copy];
 }
 
 
-- (NSData *)unwrapData:(NSData *)message error:(NSError **)error {
+- (nullable NSData *)unwrapData:(nullable NSData *)message error:(NSError **)error {
     size_t unwrappedMessageLength = 0;
     TSErrorType result = (TSErrorType) secure_session_unwrap(self.session, [message bytes], [message length],
         NULL, &unwrappedMessageLength);
@@ -116,11 +117,11 @@
         }
     }
 
-    return unwrappedMessage;
+    return [unwrappedMessage copy];
 }
 
 
-- (void)wrapAndSend:(NSData *)message error:(NSError **)error {
+- (void)wrapAndSend:(nullable NSData *)message error:(NSError **)error {
     TSErrorType result = (TSErrorType) secure_session_send(self.session, [message bytes], [message length]);
     if (result != TSErrorTypeSuccess) {
         *error = SCERROR(result, @"Secure Session failed sending");
@@ -128,7 +129,7 @@
 }
 
 
-- (NSData *)unwrapAndReceive:(NSUInteger)length error:(NSError **)error {
+- (nullable NSData *)unwrapAndReceive:(NSUInteger)length error:(NSError **)error {
     NSMutableData * receivedData = [[NSMutableData alloc] initWithLength:length];
     TSErrorType result = (TSErrorType) secure_session_receive(self.session, [receivedData mutableBytes],
         [receivedData length]);
@@ -137,7 +138,7 @@
         *error = SCERROR(result, @"Secure Session failed receiving");
         return nil;
     }
-    return receivedData;
+    return [receivedData copy];
 }
 
 
