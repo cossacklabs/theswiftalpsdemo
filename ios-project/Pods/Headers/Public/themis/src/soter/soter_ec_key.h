@@ -1,1 +1,0 @@
-../../../../../themis/src/soter/soter_ec_key.h

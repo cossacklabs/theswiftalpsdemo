@@ -1,1 +1,0 @@
-../../../../../themis/src/themis/secure_comparator.h

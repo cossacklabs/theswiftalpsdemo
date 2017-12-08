@@ -1,1 +1,0 @@
-../../../../themis/src/wrappers/themis/Obj-C/objcthemis/scell_context_imprint.h
