@@ -23,7 +23,7 @@ final class Transport: TSSessionTransportInterface {
 
     override func publicKey(for binaryId: Data!) throws -> Data {
         let error: Error = NSError(domain: errorDomain, code: -1, userInfo: nil)
-        let stringFromData = String(data: binaryId, encoding: String.Encoding.utf8)
+        let stringFromData = String(data: binaryId, encoding: .utf8)
         if stringFromData == nil {
             throw error
         }
@@ -103,7 +103,7 @@ final class SessionDemo {
     fileprivate func sendPayload(serverId: String, serverPublicKey: String, clientId: String,
                                  clientPrivateKey: String, messageToSend: String) {
 
-        guard let clientIdData: Data = clientId.data(using: String.Encoding.utf8),
+        guard let clientIdData: Data = clientId.data(using: .utf8),
         let clientPrivateKeyData: Data = Data(base64Encoded: clientPrivateKey,
                 options: .ignoreUnknownCharacters) else {
 
@@ -195,7 +195,7 @@ final class SessionDemo {
                                    completion: @escaping (_ data: String?, _ error: Error?) -> Void) {
         var encryptedMessage: Data
         do {
-            guard let wrappedMessage: Data = try self.session?.wrap(message.data(using: String.Encoding.utf8)) else {
+            guard let wrappedMessage: Data = try self.session?.wrap(message.data(using: .utf8)) else {
                 print("💥 Error occurred during wrapping message ", #function)
                 return
             }
@@ -216,7 +216,7 @@ final class SessionDemo {
 
             do {
                 guard let decryptedMessage: Data = try self.session?.unwrapData(data),
-                        let resultString: String = String(data: decryptedMessage, encoding: String.Encoding.utf8) else {
+                        let resultString: String = String(data: decryptedMessage, encoding: .utf8) else {
 
                     throw NSError(domain: errorDomain, code: -3, userInfo: nil)
                 }
@@ -293,7 +293,7 @@ extension SessionDemo {
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
         
-        let bodyData: Data = body.data(using: String.Encoding.utf8)!
+        let bodyData: Data = body.data(using: .utf8)!
 
         print("--->\n\(body)\n")
         
